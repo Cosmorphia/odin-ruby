@@ -1,23 +1,17 @@
 def bubble_sort(array)
-  i = array.length - 1
+  iteration = 0
 
-  while i > 0 do
-    curr_index = 0
-    k = array.length - 1
-
-    while k > 0 do
-      next_index = curr_index + 1
-      curr_value = array[curr_index]
-      next_value = array[next_index]
-
-      if curr_value > next_value
-        array[next_index] = curr_value
-        array[curr_index] = next_value
+  while iteration < array.length - 1 do
+    index = 0
+    length = array.length - 1 - iteration
+    
+    while index < length do
+      if array[index] > array[index + 1]
+        array[index], array[index + 1] = array[index + 1], array[index]
       end
-      curr_index += 1
-      k -= 1
+      index += 1
     end
-    i -= 1
+    iteration += 1
   end
   array
 end
@@ -35,7 +29,7 @@ def bubble_sort2(array)
   end
 end
 
-array = [4, 3, 78, 2, 0, 2]
+array = [19, 17, 14, 10, 8, 3]
 array2 = [40, 10, 7, 11, 1, 15]
 
 p bubble_sort(array)
